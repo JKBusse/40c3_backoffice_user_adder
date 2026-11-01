@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zur Assembly hinzufügen</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 32rem; margin: 3rem auto; padding: 0 1rem; }
+  label, select, textarea, button { display: block; width: 100%; box-sizing: border-box; margin-top: .5rem; }
+  textarea, select { padding: .5rem; font: inherit; }
+  button { margin-top: 1rem; padding: .6rem; font: inherit; cursor: pointer; }
+  .ok { color: #166534; } .error { color: #b91c1c; }
+</style>
+<h1>Zur Assembly hinzufügen</h1>
+{% for category, msg in get_flashed_messages(with_categories=true) %}
+  <p class="{{ category }}">{{ msg }}</p>
+{% endfor %}
+<form method="post">
+  <label for="usernames">Benutzernamen (einer pro Zeile oder kommagetrennt)</label>
+  <textarea id="usernames" name="usernames" rows="4" required autofocus></textarea>
+  <button type="submit">Hinzufügen</button>
+</form>
